@@ -1,0 +1,22 @@
+{
+  "name": "nucleus-angular-prism",
+  "version": "0.2.1",
+  "dependencies": {
+    "prism": "gh-pages"
+  },
+  "devDependencies": {
+    "jquery": "1.9.1",
+    "angular": "1.0.6",
+    "angular-mocks": "1.0.6",
+    "unstable-angular-complete": "1.1.4"
+  },
+  "homepage": "https://github.com/nucleus-angular/prism",
+  "_release": "0.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.1",
+    "commit": "4895b75622d3d778490d369d2d28efae081975b6"
+  },
+  "_source": "git://github.com/nucleus-angular/prism.git",
+  "_target": "*"
+}

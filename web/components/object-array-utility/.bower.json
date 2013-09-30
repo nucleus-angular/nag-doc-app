@@ -1,0 +1,17 @@
+{
+  "name": "object-array-utility",
+  "version": "0.1.0",
+  "main": "./object-array-utility",
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/ryanzec/object-array-utility",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "f3629bace8be5f206e6d2ada4d5b2923002c081c"
+  },
+  "_source": "git://github.com/ryanzec/object-array-utility.git",
+  "_target": "~0.1.0",
+  "_direct": true
+}

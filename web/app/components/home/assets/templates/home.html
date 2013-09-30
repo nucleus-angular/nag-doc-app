@@ -1,0 +1,106 @@
+<div class="current-component" ng-class="{'is-active': activeComponent}">
+  <div class="description" ng-bind-html="activeComponent.description"></div>
+  <div class="html-attributes" ng-if="activeComponent.nghtmlattributes">
+    <header><span class="icon-font-html-attribute"></span>HTML Attributes</header>
+    <div ng-repeat="htmlAttribute in filteredHtmlAttributes = (activeComponent.nghtmlattributes | filter:searchComponentCallback)" class="html-attribute item">
+      <header ng-click="showDetails = !showDetails">
+        <span class="name">{{ htmlAttribute.name }}</span> : <span class="type">{{ htmlAttribute.type }}</span>
+      </header>
+      <div class="details" ng-class="{'is-active': showDetails}">
+        <div class="description" ng-bind-html="htmlAttribute.description"></div>
+      </div>
+    </div>
+    <div class="html-attribute item empty" ng-if="filteredHtmlAttributes.length === 0">
+      No items available.
+    </div>
+  </div>
+  <div class="methods" ng-if="activeComponent.methods">
+    <header><span class="icon-font-method"></span>Methods</header>
+    <div ng-repeat="method in filteredMethods = (activeComponent.methods | filter:searchComponentCallback)" class="method item">
+      <header ng-click="showDetails = !showDetails">
+        <div class="angular-type" ng-if="method.ngtype">{{ method.ngtype }}</div>
+        <span class="signature">
+          <span class="name">{{ method.name }}</span><span class="parameters">(<span ng-repeat="parameter in method.parameters" class="parameter"><span ng-if="parameter.optional">[</span><span ng-if="$index > 0">, </span>{{ parameter.type }} {{ parameter.name }}<span class="default-value" ng-if="parameter.optdefault.length"> = {{ parameter.optdefault }}</span><span ng-if="parameter.optional">]</span></span>)</span>
+        </span><span class="return" ng-if="method.return"> : {{ method.return.type }} </span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: method.sourceFileName, lines: method.line})" class="file">{{ method.file }} at line #{{ method.line }}</span>
+      </header>
+      <div class="details" ng-class="{'is-active': showDetails}">
+        <div class="description" ng-bind-html="method.description"></div>
+        <div class="return" ng-if="method.return">
+          <header>Returns : {{ method.return.type }}</header>
+          <div class="description sub-section" ng-bind-html="method.return.description"></div>
+        </div>
+        <div class="examples" ng-if="method.examples">
+          <header>Examples</header>
+          <div class="examples sub-section">
+            <!--<pre nag-prism ng-repeat="example in method.examples" class="example language-{{ example.type }} line-numbers"><code ng-bind-html="example.example"></code></pre>-->
+            <div ng-repeat="example in method.examples" class="example" ng-bind-html="example.example"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="method item empty" ng-if="filteredMethods.length === 0">
+      No items available.
+    </div>
+  </div>
+  <div class="properties" ng-if="activeComponent.properties">
+    <header><span class="icon-font-property"></span>Properties</header>
+    <div ng-repeat="property in filteredProperties = (activeComponent.properties | filter:searchComponentCallback)" class="property item">
+      <header ng-click="showDetails = !showDetails">
+        <div class="angular-type" ng-if="property.ngtype">{{ property.ngtype }}</div>
+        <span class="name">{{ property.name }}</span> : <span class="type">{{ property.type }}</span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: property.sourceFileName, lines: property.line})" class="file">{{ property.file }} at line #{{ property.line }}</span>
+      </header>
+      <div class="details" ng-class="{'is-active': showDetails}">
+        <div class="description" ng-bind-html="property.description"></div>
+        <div class="sub-properties" ng-if="property.subprops">
+          <header  ng-class="{'is-active': showSubProperties}" ng-click="showSubProperties = !showSubProperties">Sub-Properties</header>
+          <div class="details sub-section" ng-class="{'is-active': showSubProperties}">
+            <!-- todo: need to integrate filtering for sub-properties -->
+            <div ng-repeat="subProperty in property.subprops" class="sub-property item">
+              <header>
+                <span class="name">{{ property.name }}.{{ subProperty.name }}</span> : <span class="type">{{ subProperty.type }}</span>
+              </header>
+              <div>
+                <div class="default-value" ng-if="subProperty.optdefault.length">Default: {{ subProperty.optdefault }}</div>
+                <div class="description" ng-bind-html="subProperty.description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="property item empty" ng-if="filteredProperties.length === 0">
+      No items available.
+    </div>
+  </div>
+  <div class="events" ng-if="activeComponent.events || activeComponent.respondTos">
+    <header><span class="icon-font-event"></span>Events</header>
+    <div class="broadcasts" ng-if="activeComponent.events">
+      <div class="sub-header">Broadcasts</div>
+      <div ng-repeat="event in filteredEvents = (activeComponent.events | filter:searchComponentCallback)" class="event-broadcast item sub-section">
+        <header ng-click="showDetails = !showDetails">
+          <span class="event-level">{{ event.eventlevel }}</span> - <span class="name">{{ event.name }}</span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: event.sourceFileName, lines: event.line})" class="file">File: {{ event.file }} at line #{{ event.line }}</span>
+        </header>
+        <div class="details" ng-class="{'is-active': showDetails}">
+          <div class="description" ng-bind-html="event.description"></div>
+        </div>
+      </div>
+      <div class="event-broadcast item empty" ng-if="filteredEvents.length === 0">
+        No items available.
+      </div>
+    </div>
+    <div class="listens" ng-if="activeComponent.respondTos">
+      <div class="sub-header">Listens</div>
+      <div ng-repeat="respondTo in filteredRespondTos = (activeComponent.respondTos | filter:searchComponentCallback)" class="event-listen item sub-section">
+        <header ng-click="showDetails = !showDetails">
+          <span class="name">{{ respondTo.name }}</span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: respondTo.sourceFileName, lines: respondTo.line})" class="file">File: {{ respondTo.file }} at line #{{ respondTo.line }}</span> : <span class="event-level">{{ respondTo.eventlevel }}</span>
+        </header>
+        <div class="details" ng-class="{'is-active': showDetails}">
+          <div class="description" ng-bind-html="respondTo.description"></div>
+        </div>
+      </div>
+      <div class="event-listen item empty" ng-if="filteredRespondTos.length === 0">
+        No items available.
+      </div>
+    </div>
+  </div>
+</div>

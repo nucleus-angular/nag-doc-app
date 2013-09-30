@@ -1,0 +1,115 @@
+.revealing-panel {
+  .content {
+    //animation stuff
+    @include transition(width .25s linear, height .25s linear);
+
+    position: fixed;
+    z-index: 11000;
+    background-color: white;
+    overflow: hidden;
+
+    //useful for want to have a revealing panel within a element in the page instead of on the page itself
+    &.absolute {
+      position: absolute;
+    }
+
+    &.conceal-animate,
+    &.is-active {
+      overflow: auto;
+    }
+
+    &.center {
+      top: 50%;
+      left: 50%;
+      height: 500px;
+      width: 500px;
+      display: none;
+      border: 1px solid $black;
+
+      &.reveal-animate {
+        @include animation(fadeIn .25s ease-in);
+      }
+
+      &.conceal-animate {
+        @include animation(fadeOut .25s ease-in);
+        display: inline-block;
+      }
+
+      &.is-active {
+        display: inline-block;
+      }
+    }
+
+    &.left {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0;
+
+      &.is-active {
+        border-right: 1px solid black;
+
+        //default value, should be manually handled on a case by case basis
+        width: 500px;
+      }
+
+      .inner-content {
+        min-width: 500px;
+      }
+    }
+
+    &.right {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 0;
+
+      &.is-active {
+        border-left: 1px solid black;
+
+        //default value, should be manually handled on a case by case basis
+        width: 500px;
+      }
+
+      .inner-content {
+        min-width: 500px;
+      }
+    }
+
+    &.top {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+
+      &.is-active {
+        border-bottom: 1px solid black;
+
+        //default value, should be manually handled on a case by case basis
+        height: 500px;
+      }
+
+      .inner-content {
+        min-height: 500px;
+      }
+    }
+
+    &.bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+
+      &.is-active {
+        border-top: 1px solid black;
+
+        //default value, should be manually handled on a case by case basis
+        height: 500px;
+      }
+
+      .inner-content {
+        min-height: 500px;
+      }
+    }
+  }
+}

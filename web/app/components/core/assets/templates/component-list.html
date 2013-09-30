@@ -1,0 +1,6 @@
+<div class="component-list-search-container">
+  <input id="component-list-search" class="component-list-search" ng-model="searchListText" ng-keydown="clearOnEscape($event, 'searchListText')" ng-mouseup="searchMouseUp($event)" placeholder="Filter Components" />
+</div>
+<ul class="components">
+  <li ng-repeat="component in searchData | filter:searchListText" class="component" ng-click="navigateTo('demo.docs.component', {component: component.name})" ng-class="{'is-active': component.name == activeComponent.name}"><span class="type icon-font-{{ component.componentType }}" ng-class=""></span>{{ component.name }}</li>
+</ul>

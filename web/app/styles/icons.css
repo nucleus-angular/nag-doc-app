@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'angular-docs-icons';
+  src:url('../fonts/angular-docs-icons.eot');
+  src:url('../fonts/angular-docs-icons.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/angular-docs-icons.woff') format('woff'),
+  url('../fonts/angular-docs-icons.ttf') format('truetype'),
+  url('../fonts/angular-docs-icons.svg#angular-docs-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-font-"] {
+*/
+.icon-font-value, .icon-font-source-code, .icon-font-service, .icon-font-search, .icon-font-html-attribute, .icon-font-filter, .icon-font-event, .icon-font-controller, .icon-font-directive, .icon-font-module, .icon-font-class, .icon-font-property, .icon-font-method {
+  font-family: 'angular-docs-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-font-value:before {
+  content: "\e000";
+}
+.icon-font-source-code:before {
+  content: "\e001";
+}
+.icon-font-service:before {
+  content: "\e002";
+}
+.icon-font-search:before {
+  content: "\e005";
+}
+.icon-font-html-attribute:before {
+  content: "\e004";
+}
+.icon-font-filter:before {
+  content: "\e003";
+}
+.icon-font-event:before {
+  content: "\e006";
+}
+.icon-font-controller:before {
+  content: "\e007";
+}
+.icon-font-directive:before {
+  content: "\e008";
+}
+.icon-font-module:before {
+  content: "\e009";
+}
+.icon-font-class:before {
+  content: "\e00a";
+}
+.icon-font-property:before {
+  content: "\e00b";
+}
+.icon-font-method:before {
+  content: "\e00c";
+}

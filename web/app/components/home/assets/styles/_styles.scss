@@ -1,0 +1,283 @@
+$left-main-content: 305px;
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.page {
+  > header {
+    clear: both;
+  }
+
+  > footer {
+    clear: both;
+  }
+}
+
+.component-list-search,
+.component-search {
+  border: 1px solid $gray;
+  border-radius: 10px;
+  padding-left: 10px;
+
+  &:focus {
+    border-color: $gray-darker;
+    box-shadow: inset 0 0 1.5rem $gray-lighter;
+    outline: none;
+  }
+}
+
+.component-list {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 295px;
+  overflow: scroll;
+  z-index: 402;
+
+  .component-list-search-container {
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 270px;
+    z-index: 501;
+
+    .component-list-search {
+      width: 270px;
+      margin: 10px 20px 10px 5px;
+    }
+  }
+
+  .components {
+    position: relative;
+    top: 40px;
+    z-index: 500
+  }
+
+  .component {
+    cursor: pointer;
+    padding: 5px;
+  }
+}
+
+.type {
+  position: relative;
+  top: 2px;
+  padding-right: 5px;
+}
+
+.component-bar-container {
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 401;
+
+  .component-bar {
+    border-radius: 3px;
+    background-color: #d0dfe9;
+    padding: 10px;
+    margin: 10px 10px 0 $left-main-content;
+
+    header {
+      font-size: 2rem;
+      padding-bottom: 8px;
+    }
+
+    .counts {
+      display: inline;
+
+      li {
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: inline;
+        padding-left: 15px;
+
+        span:nth-child(1) {
+          padding-right: 3px;
+        }
+
+        span:nth-child(2) {
+          margin-left: 3px;
+        }
+      }
+    }
+
+    .view-source {
+      float: right;
+
+      &.is-active {
+        color: $green-dark;
+      }
+    }
+  }
+
+  .file {
+    cursor: pointer;
+    float: right;
+    font-size: 1.1rem;
+  }
+}
+
+.current-component {
+  background-color: $white;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: none;
+  padding: 95px 10px 10px $left-main-content;
+
+  &.is-active {
+    display: block;
+    z-index: 400;
+  }
+
+  .file {
+    cursor: pointer;
+    float: right;
+    font-size: 1.1rem;
+  }
+
+  .examples {
+    pre {
+      border-radius: 3px;
+
+      //this is needed in order for the line-highlight prism plugin to work
+      line-height: 1.5rem;
+    }
+  }
+
+  .sub-section {
+    padding-left: 15px
+  }
+
+  > div > header {
+    margin: 15px 0;
+    padding-bottom: 5px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(53, 81, 139);
+    border-bottom: 1px solid rgba(53, 81, 139, 0.15);
+
+    span {
+      padding-right: 10px;
+    }
+  }
+
+  .sub-header {
+    font-weight: bold;
+    margin: 10px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+  }
+
+  .details {
+    padding-top: 10px;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+
+    header {
+      color: rgb(53, 81, 139);
+      cursor: pointer;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+  }
+
+  .method {
+    .signature {
+      font-weight: 600;
+    }
+
+    .return {
+      header {
+        color: $black;
+        font-weight: bold;
+        margin: 10px 0;
+        padding-bottom: 3px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .sub-properties {
+    > header {
+      padding-top: 10px;
+    }
+
+    .item:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .sub-property {
+    > header {
+      padding-bottom: 10px;
+    }
+  }
+
+  .current-source-code {
+    z-index: 400;
+  }
+}
+
+.source-code {
+  margin-right: 10px;
+  padding: 85px 0 0 $left-main-content;
+
+  pre {
+    border-radius: 3px;
+
+    //this is needed in order for the line-highlight prism plugin to work
+    line-height: 1.5rem;
+  }
+}
+
+//todo: prism overrides
+.page {
+  :not(pre) > code[class*="language-"] {
+    padding: .2rem;
+    background: #DDD6D2;
+  }
+}
+
+
+//todo: this should be part of a markdown class instead of description
+.description {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  p {
+    padding: 8px 0;
+  }
+
+  ul {
+    padding-left: 30px;
+  }
+
+  li {
+    padding: 3px 0;
+    list-style: disc;
+  }
+
+  pre {
+    border-radius: 3px;
+
+    //this is needed in order for the line-highlight prism plugin to work
+    line-height: 1.5rem;
+  }
+}

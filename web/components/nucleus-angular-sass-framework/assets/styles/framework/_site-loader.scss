@@ -1,0 +1,24 @@
+.site-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $white;
+  z-index: 10000;
+
+  .text {
+    padding-top: 50px;
+    width: 300px;
+    margin: 0 auto;
+    z-index: 1001;
+    text-align: center;
+  }
+}
+
+.non-blocking-loader .message {
+  border-top: none;
+  padding: 0.25em 0.5em;
+  border-radius: 0 0 3px 3px;
+  z-index: 10001;
+}

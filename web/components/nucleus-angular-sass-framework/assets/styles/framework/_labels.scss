@@ -1,0 +1,36 @@
+.label {
+  color: $white;
+  background-color: $gray;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.badge {
+  color: $white;
+  background-color: $gray;
+  padding: 3px 7px;
+  border-radius: 10px;
+}
+
+.label,
+.badge {
+  &.success {
+    background-color: $green-dark;
+  }
+
+  &.notice {
+    background-color: $blue;
+  }
+
+  &.warning {
+    background-color: $orange-dark;
+  }
+
+  &.danger {
+    background-color: $red;
+  }
+
+  &.error {
+    background-color: $red;
+  }
+}

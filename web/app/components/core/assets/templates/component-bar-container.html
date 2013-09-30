@@ -1,0 +1,21 @@
+<div class="component-bar" ng-if="activeComponent">
+    <header>
+        <span class="type icon-font-{{ activeComponent.componentType }}"></span><span class="name">{{ activeComponent.name }}</span><span class="extends" ng-if="activeComponent.extends"> extends {{ activeComponent.extends }}</span><span class="module">({{ activeComponent.module }} module)</span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: activeComponent.sourceFileName, lines: activeComponent.line})" class="file">{{ activeComponent.file }} at line #{{ activeComponent.line }}</span>
+    </header>
+    <input id="component-search" class="component-search" ng-model="searchComponentText" ng-keydown="clearOnEscape($event, 'searchComponentText')" ng-mouseup="searchMouseUp($event)" placeholder="Filter Component Items" />
+    <ul class="counts">
+        <li ng-if="activeComponent.nghtmlattributes">
+            <span class="icon-font-html-attribute"></span>HTML Attributes<span class="count badge notice">{{ activeComponent.nghtmlattributes.length }}</span>
+        </li>
+        <li ng-if="activeComponent.methods">
+            <span class="icon-font-method"></span>Methods<span class="count badge notice">{{ activeComponent.methods.length }}</span>
+        </li>
+        <li ng-if="activeComponent.properties">
+            <span class="icon-font-property"></span>Properties<span class="count badge notice">{{ activeComponent.properties.length }}</span>
+        </li>
+        <li ng-if="activeComponent.events || activeComponent.respondTos">
+            <span class="icon-font-event"></span>Events<span class="count badge notice">{{ activeComponent.events.length + activeComponent.respondTos.length }}</span>
+        </li>
+    </ul>
+    <span ng-click="toggleSource()"><span id="view-source" class="view-source icon-font-source-code" ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: activeComponent.sourceFileName})" ng-class="{'is-active': viewSourceCode}"></span></span>
+</div>
