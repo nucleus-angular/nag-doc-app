@@ -9,7 +9,7 @@ var app = express();
 var api = require('./routes/api');
 
 //express configuration
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3857);
 
 //Express.js intended for use as data style api so we don't need jade, only going to load index html file, everything else will be handled by angular
 //app.set('views', __dirname + '/views');
