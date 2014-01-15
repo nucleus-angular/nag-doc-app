@@ -32,8 +32,7 @@
         <div class="examples" ng-if="method.examples">
           <header>Examples</header>
           <div class="examples sub-section">
-            <!--<pre nag-prism ng-repeat="example in method.examples" class="example language-{{ example.type }} line-numbers"><code ng-bind-html="example.example"></code></pre>-->
-            <div ng-repeat="example in method.examples" class="example" ng-bind-html="example.example"></div>
+            <pre nag-prism ng-repeat="example in method.examples" class="example language-{{ example.type }} line-numbers"><code ng-bind-html="example.example"></code></pre>
           </div>
         </div>
       </div>
