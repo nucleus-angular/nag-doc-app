@@ -14,7 +14,7 @@ var api = require('./routes/api');
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'jade');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3857);
 
 app.use(express.favicon());
 app.use(express.logger('dev'));
