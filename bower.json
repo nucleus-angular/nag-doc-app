@@ -7,7 +7,7 @@
     "modernizr": "2.6.2",
     "lodash": "1.2.1",
     "keymaster": "latest",
-    "unstable-angular-complete": "1.2.0rc2",
+    "angular": "1.2.12",
     "angular-ui-router": "0.2.0",
     "nucleus-angular-sass-framework": "latest",
     "nucleus-angular-prism": "latest",

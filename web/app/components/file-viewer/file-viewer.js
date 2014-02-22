@@ -51,6 +51,7 @@ angular.module('demo.fileViewer.fileViewer', [
       $scope.sourceCode = $sce.trustAsHtml(response);
     })
     .error(function(response) {
+      console.log('ERROR');
       console.log(response);
     });
 

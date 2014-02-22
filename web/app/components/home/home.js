@@ -87,7 +87,6 @@ angular.module('demo.home.home', [
     searchData.getByProperty('name', $stateParams.component).then(function(component) {
       $rootScope.$broadcast('Application/selectedActiveComponent', component);
       window.scrollTo(0, 0);
-      $scope.searchComponentText = '';
       $scope.viewSourceCode = false;
 
       $http({
@@ -161,5 +160,48 @@ angular.module('demo.home.home', [
     });
     
     $scope.activeComponent = null;
+    $scope.searchComponentText = '';
+    //$scope.activeComponent = null;
+    $scope.searchComponentCallback = function(componentItem) {
+      //todo: need to make this work for subprops of properties
+      var matches = _.isEmpty($scope.searchComponentText) || componentItem.name.indexOf($scope.searchComponentText) !== -1;
+
+      if(matches === false && componentItem.subprops && componentItem.subprops.length > 0) {
+        _.forEach(componentItem.subprops, function(subProperty) {
+          if(matches === false) {
+            matches = subProperty.name.indexOf($scope.searchComponentText) !== -1;
+          } else {
+            return;
+          }
+        });
+      }
+
+      return matches;
+    };
+    $scope.clearOnEscape = function($event, dataToClear) {
+      if($event.which === 27) {
+        //$event.preventDefault();
+        if($scope[dataToClear].length > 0) {
+          $scope[dataToClear] = '';
+        } else {
+          $($event.target).blur();
+        }
+      } else {
+        //todo: research: I should not have to do this
+        //$scope.searchComponentText = $('#component-search').val();
+      }
+    };
+    $scope.searchMouseUp = function($event) {
+      $($event.target).select();
+    };
+
+    key('c', function() {
+      $('#component-search').focus();
+      return false;
+    });
+
+    $rootScope.$on('Application/processedActiveComponent', function(self, component) {
+      $scope.activeComponent = component;
+    });
   }
 ]);

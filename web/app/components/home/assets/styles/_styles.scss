@@ -59,6 +59,10 @@ p {
   .component {
     cursor: pointer;
     padding: 5px;
+
+    &.is-active {
+      font-weight: 600;
+    }
   }
 }
 

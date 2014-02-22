@@ -22,8 +22,8 @@ angular.module('demo.core.componentList', [
       $($event.target).select();
     };
 
-    key('c', function() {
-      $('#component-search').focus();
+    key('l', function() {
+      $('#component-list-search').focus();
       return false;
     });
 

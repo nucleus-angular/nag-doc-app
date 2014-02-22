@@ -30,7 +30,6 @@ angular.module('demo.core', [
   'demo.core.routing',
   'demo.core.constants',
   'demo.core.componentList',
-  'demo.core.componentBarContainer',
   'demo.core.searchData',
   'demo.core.componentTypeNormalizer'
 ]);

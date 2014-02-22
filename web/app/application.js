@@ -18,7 +18,6 @@ angular.module('demo', [
   '$rootScope',
   function($state, $rootScope) {
     $rootScope.navigateTo = function(routeName, parameters, options) {
-      console.log()
       $state.transitionTo(routeName, parameters, options);
     };
 
