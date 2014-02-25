@@ -151,6 +151,12 @@ angular.module('demo.home.home', [
           });
         }
 
+        if(response.ngWatches) {
+          _.forEach(response.ngWatches, function(item, key) {
+            response.ngWatches[key].description = $sce.trustAsHtml(parseCodeBlocks(item.description));
+          });
+        }
+
         $rootScope.$broadcast('Application/processedActiveComponent', response);
 
         $scope.activeComponent = response;

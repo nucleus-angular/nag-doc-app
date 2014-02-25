@@ -17,6 +17,9 @@
       <li ng-if="activeComponent.events || activeComponent.respondTos">
         <span class="icon-font-event"></span>Events<span class="count badge notice">{{ activeComponent.events.length + activeComponent.respondTos.length }}</span>
       </li>
+      <li ng-if="activeComponent.ngWatches">
+        <span class="icon-font-ngwatches"></span>Watches<span class="count badge notice">{{ activeComponent.ngWatches.length }}</span>
+      </li>
     </ul>
     <span ng-click="toggleSource()"><span id="view-source" class="view-source icon-font-source-code" ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: activeComponent.sourceFileName})" ng-class="{'is-active': viewSourceCode}"></span></span>
   </div>
@@ -123,6 +126,21 @@
       <div class="event-listen item empty" ng-if="filteredRespondTos.length === 0">
         No items available.
       </div>
+    </div>
+  </div>
+  <div class="ngwatches" ng-if="activeComponent.ngWatches">
+    <header><span class="icon-font-ngwatches"></span>Watches</header>
+    <div ng-repeat="ngwatch in filteredNgwatches = (activeComponent.ngWatches | filter:searchComponentCallback)" class="ngwatch item">
+      <header ng-click="showDetails = !showDetails">
+        <div class="angular-type" ng-if="ngwatch.ngtype">{{ ngwatch.ngtype }}</div>
+        <span class="name">{{ ngwatch.name }}</span><span ng-click="navigateTo('demo.fileViewer.fileViewer', {fileName: ngwatch.sourceFileName, lines: ngwatch.line})" class="file">{{ ngwatch.file }} at line #{{ ngwatch.line }}</span>
+      </header>
+      <div class="details" ng-class="{'is-active': showDetails}">
+        <div class="description" ng-bind-html="ngwatch.description"></div>
+      </div>
+    </div>
+    <div class="ngwatch item empty" ng-if="filteredNgwatches.length === 0">
+      No items available.
     </div>
   </div>
 </div>
