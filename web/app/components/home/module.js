@@ -9,7 +9,7 @@ angular.module('demo.home.routing', [
       url: '/docs',
       views: {
         '': {
-          templateUrl: '/app/components/core/assets/templates/module-wrapper.html'
+          templateUrl: 'app/components/core/assets/templates/module-wrapper.html'
         }
       }
     });

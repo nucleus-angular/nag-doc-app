@@ -10,14 +10,14 @@ angular.module('demo.core.routing', [
       url: '',
       views: {
         '': {
-          template: '<div ui-view></div>'//'/app/components/core/assets/templates/module-wrapper.html'
+          template: '<div ui-view></div>'//'app/components/core/assets/templates/module-wrapper.html'
         },
         'component-list': {
-          templateUrl: '/app/components/core/assets/templates/component-list.html',
+          templateUrl: 'app/components/core/assets/templates/component-list.html',
           controller: 'ComponentListCtrl'
         },
         'component-bar-container': {
-          templateUrl: '/app/components/core/assets/templates/component-bar-container.html',
+          templateUrl: 'app/components/core/assets/templates/component-bar-container.html',
           controller: 'ComponentBarContainerCtrl'
         }
       }

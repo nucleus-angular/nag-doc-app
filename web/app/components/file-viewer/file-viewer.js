@@ -25,7 +25,7 @@ angular.module('demo.fileViewer.fileViewer', [
       url: '/:fileName?lines',
       views: {
         '': {
-          templateUrl: '/app/components/file-viewer/assets/templates/file-viewer.html',
+          templateUrl: 'app/components/file-viewer/assets/templates/file-viewer.html',
           controller: 'FileViewerController'
         }
       }
@@ -45,7 +45,7 @@ angular.module('demo.fileViewer.fileViewer', [
 
     $http({
       method: 'GET',
-      url: '/source_files/' + $stateParams.fileName
+      url: 'source_files/' + $stateParams.fileName
     })
     .success(function(response) {
       $scope.sourceCode = $sce.trustAsHtml(response);

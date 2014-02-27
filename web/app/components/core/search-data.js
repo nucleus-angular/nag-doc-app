@@ -10,7 +10,7 @@ angular.module('demo.core.searchData', [])
     //let start trying to load the data
     $http({
       method: 'GET',
-      url: '/json/search-data.json'
+      url: 'json/search-data.json'
     })
     .success(function(response) {
       searchData = response;

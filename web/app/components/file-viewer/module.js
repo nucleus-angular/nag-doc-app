@@ -10,7 +10,7 @@ angular.module('demo.fileViewer.routing', [
       abstract: true,
       views: {
         '': {
-          templateUrl: '/app/components/core/assets/templates/module-wrapper.html'
+          templateUrl: 'app/components/core/assets/templates/module-wrapper.html'
         }
       }
     });

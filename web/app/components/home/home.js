@@ -67,7 +67,7 @@ angular.module('demo.home.home', [
       url: '/:component',
       views: {
         '': {
-          templateUrl: '/app/components/home/assets/templates/home.html',
+          templateUrl: 'app/components/home/assets/templates/home.html',
           controller: 'HomeCtrl'
         }
       }
@@ -91,7 +91,7 @@ angular.module('demo.home.home', [
 
       $http({
         method: 'GET',
-        url: component.jsonPath
+        url: component.jsonPath.substr(1)
       })
       .success(function(response) {
         if(response.tag === 'module') {
