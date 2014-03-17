@@ -64,7 +64,7 @@ angular.module('demo.home.home', [
   function($stateProvider) {
     $stateProvider
     .state('demo.docs.component', {
-      url: '/:component',
+      url: '/:module/:component',
       views: {
         '': {
           templateUrl: 'app/components/home/assets/templates/home.html',
@@ -84,7 +84,7 @@ angular.module('demo.home.home', [
   'searchData',
   'componentTypeNormalizer',
   function($scope, $rootScope, $http, $sce, $stateParams, $compile, searchData, componentTypeNormalizer) {
-    searchData.getByProperty('name', $stateParams.component).then(function(component) {
+    searchData.getByProperty({'name': $stateParams.component, 'module': $stateParams.module}).then(function(component) {
       $rootScope.$broadcast('Application/selectedActiveComponent', component);
       window.scrollTo(0, 0);
       $scope.viewSourceCode = false;
