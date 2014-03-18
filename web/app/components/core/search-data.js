@@ -48,7 +48,7 @@ angular.module('demo.core.searchData', [])
             match = true;
 
             _.forEach(filterData, function(value, key) {
-              if(match === true && item[key] !== value) {
+              if(match === true && value && item[key] !== value) {
                 match = false;
               }
             });
